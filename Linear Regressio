@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+from scipy import stats
+
+
+lope, intercept, r, p, std_err = stats.linregress(age, speed)
+
+
+#  r = კორელაციის კოეფიციენტი = 0 - False, 1/-1 - True
+
+
+def myFunc(x):
+    return slope * x + intercept
+
+
+mymodel = list(map(myFunc, age))
+
+print("Connection Between X and Y :", r)
+predict = myFunc(10)
+print(predict)  # Prediction
+
+plt.scatter(age, speed)
+plt.plot(age, mymodel)
+plt.show()
