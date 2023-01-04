@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import r2_score
+
+
+np.random.seed(2)
+
+xran = np.random.normal(3, 1, 100)
+yran = np.random.normal(150, 40, 100) / xran
+
+train_x = xran[:80]
+train_y = yran[:80]
+
+test_x = xran[80:]
+test_y = yran[80:]
+
+mymodel = np.poly1d(np.polyfit(train_x, train_y, 4))
+
+myline = np.linspace(0, 6, 100)
+
+compliance = r2_score(train_y, mymodel(train_x))  # შესაბამისობა
+
+print(mymodel(5))  # Prediction
+print(compliance)  # შესაბამისობა
+plt.scatter(train_x, train_y)
+plt.scatter(test_x, test_y)
+plt.plot(myline, mymodel(myline))
+plt.show()
