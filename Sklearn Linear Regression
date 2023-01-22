@@ -1,0 +1,32 @@
+import numpy as np
+
+from sklearn.linear_model import LinearRegression
+
+# Collect 100 numbers from user
+
+past_numbers = [10,20,30,40,50]
+
+# Create input and output arrays
+
+X = np.array(range(1,len(past_numbers)+1)).reshape(-1, 1)
+
+y = past_numbers
+
+# Initialize and fit linear regression model
+
+model = LinearRegression()
+
+model.fit(X, y)
+
+# Predict next number based on past inputs
+
+def predict_next_number(past_numbers):
+
+    X_pred = np.array([len(past_numbers) + 1]).reshape(-1, 1)
+
+    return int(model.predict(X_pred)[0])
+
+# Test prediction function
+
+print("Predicted next number: ", predict_next_number(past_numbers))
+
