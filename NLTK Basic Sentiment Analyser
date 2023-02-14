@@ -16,9 +16,9 @@ def sentiment_analyzer(text):
         return 'neutral'
 
 
-text = input("Write Text : ")
-
-while text != 'exit':
+boolean = True
+while boolean:
+    text = input("Write Text : ")
     if text == 'exit':
         print('Bye.')
         break
