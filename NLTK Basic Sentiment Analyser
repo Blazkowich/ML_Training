@@ -24,4 +24,4 @@ while text != 'exit':
         break
 
     else:
-        print(sentiment_analyzer(text)
+        print(sentiment_analyzer(text))
